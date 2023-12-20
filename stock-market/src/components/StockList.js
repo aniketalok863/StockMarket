@@ -1,17 +1,24 @@
 // components/StockList.js
 import React from 'react';
 
-const StockList = ({ data }) => {
+const StockList = ({ data, onStockClick }) => {
+  console.log('Received data in StockList:', data);
+
   return (
     <div>
-      <h2>Stock List</h2>
-      <ul>
-        {data.map((stock) => (
-          <li key={stock.symbol}>
-            <strong>{stock.companyName}</strong> - Symbol: {stock.symbol}, Latest Price: {stock.latestPrice}
+    <h1>Stocks</h1>
+    <ul className="list-group">
+      {Array.isArray(data) &&
+        data.map((stock) => (
+          <li
+            key={stock.symbol}
+            className="list-group-item"
+            onClick={() => onStockClick(stock)}
+          >
+            {stock.symbol} - {stock.companyName}
           </li>
         ))}
-      </ul>
+    </ul>
     </div>
   );
 };
