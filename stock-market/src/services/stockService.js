@@ -4,7 +4,7 @@ const BASE_URL = 'https://api.iex.cloud/v1';
 
 const fetchAllStocksData = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/stock/market/list/mostactive?token=${API_KEY}`);
+    const response = await fetch(`${BASE_URL}/stock/market/list/mostactive?token=${API_KEY}&listLimit=50`);
     if (!response.ok) {
       throw new Error('Failed to fetch stock data');
     }
