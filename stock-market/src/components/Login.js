@@ -1,15 +1,20 @@
 // components/Login.js
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     // Basic validation, replace with your own validation logic
     if (username && password) {
       // Simulate successful login
       onLogin({ username });
+
+      // Redirect to the dashboard page
+      navigate('/dashboard');
     } else {
       alert('Please enter both username and password.');
     }
@@ -43,9 +48,14 @@ const Login = ({ onLogin }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="button" className="btn btn-primary" onClick={handleLogin}>
-          Login
-        </button>
+        <div className="mb-3">
+          <button type="button" className="btn btn-primary mx-3" onClick={handleLogin}>
+            Login
+          </button>
+          <Link to="/signup" className="btn btn-primary mx-3">
+            Signup
+          </Link>
+        </div>
       </form>
     </div>
   );
