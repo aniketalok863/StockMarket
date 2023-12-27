@@ -1,10 +1,13 @@
 // components/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTheme } from './ThemeContext';
 
 const Navbar = ({ username, onLogout }) => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-lg navbar-${theme} bg-${theme}`}>
       <Link className="navbar-brand" to="/">
         StockMarket
       </Link>
@@ -35,7 +38,10 @@ const Navbar = ({ username, onLogout }) => {
                 <span className="nav-link">Welcome, {username}!</span>
               </li>
               <li className="nav-item">
-                <button className="btn btn-outline-primary" onClick={onLogout}>
+                <button
+                  className="btn btn-outline-primary"
+                  onClick={onLogout}
+                >
                   Logout
                 </button>
               </li>
@@ -47,6 +53,16 @@ const Navbar = ({ username, onLogout }) => {
               </Link>
             </li>
           )}
+        </ul>
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <button
+              className="btn btn-outline-primary"
+              onClick={toggleTheme}
+            >
+              Theme
+            </button>
+          </li>
         </ul>
       </div>
     </nav>

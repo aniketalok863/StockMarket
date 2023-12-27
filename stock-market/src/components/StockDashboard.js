@@ -94,7 +94,7 @@ const StockDashboard = () => {
     try {
       // Fetch historical data for the selected stock for the last seven days
       const response = await fetch(
-        `https://api.iex.cloud/v1/stock/${stock.symbol}/chart/7d?token=pk_567452d72552488fb303423ae6581307`
+        `https://api.iex.cloud/v1/stock/${stock.symbol}/chart/7d?token=pk_3af404fd17e1494680a168c86adb9db9`
       );
       const historyData = await response.json();
 

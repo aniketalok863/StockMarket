@@ -1,0 +1,14 @@
+/* styles.css */
+
+/* Light Theme Styles */
+.app.light {
+    background-color: #ffffff; /* Set light theme background color */
+    color: #000000; /* Set light theme text color */
+  }
+  
+  /* Dark Theme Styles */
+  .app.dark {
+    background-color: #2d2d2d; /* Set dark theme background color */
+    color: #ffffff; /* Set dark theme text color */
+  }
+  
